@@ -3,3 +3,7 @@ Orden de archivos a ejecutar
 -1 Configuracion ipv4
 -2 Configuracion ssh
 -3 Configuracion firewall
+-4 Configuracion DNS
+-5 Configuracion DHCP
+//Estos scripts fueron comprobados para 
+--Ubuntu Server 22.04.4 LTS
