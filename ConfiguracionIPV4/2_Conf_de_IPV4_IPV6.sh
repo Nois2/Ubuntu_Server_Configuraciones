@@ -9,11 +9,11 @@ ls
 echo
 
 # Contenido para agregar al archivo 00-installer-config.yaml
-network_config='
-(#This is the network config written by '"'"'subiquity'"'"'
+network_config=$(cat << 'EOF'
+# This is the network config written by 'subiquity'
 network:
   version: 2
-  rendered: networkd
+  renderer: networkd
   ethernets:
     enp0s3:
       dhcp4: true
@@ -21,13 +21,14 @@ network:
       optional: true
 
     enp0s8:
-      addresses: [172.16.0.2/24, 172.16.0.3/24, '"'"'2001:DB7:DEA:A::2/64'"'"', '"'"'2001:DB7:DEA:A::3/64'"'"']
+      addresses: [172.16.0.2/24, 172.16.0.3/24, '2001:DB7:DEA:A::2/64', '2001:DB7:DEA:A::3/64']
       nameservers:
-        addresses: [172.16.0.2, '"'"'2001:DB7:DEA:A::2'"'"', '"'"'2001:4860:4860::8888'"'"']
+        addresses: [172.16.0.2, '2001:DB7:DEA:A::2', '2001:4860:4860::8888']
       dhcp4: false
       dhcp6: false
-      optional: true)
-'
+      optional: true
+EOF
+)
 
 # Escribe el contenido en el archivo 00-installer-config.yaml
 echo "Escribiendo en el archivo 00-installer-config.yaml..."
