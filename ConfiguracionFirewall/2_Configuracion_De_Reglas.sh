@@ -13,6 +13,8 @@ $(echo "Permitiendo tráfico en el puerto 53/tcp..." && sudo ufw allow 53/tcp)
 $(echo "Permitiendo tráfico en el puerto 53/udp..." && sudo ufw allow 53/udp)
 $(echo "Permitiendo tráfico en el puerto 80/tcp..." && sudo ufw allow 80/tcp)
 $(echo "Permitiendo tráfico en el puerto 22/tcp..." && sudo ufw allow 22/tcp)
+$(echo "Permitiendo tráfico en el puerto 22/tcp..." && sudo ufw allow 22/udp)
+
 
 # Mostrar el estado actual del firewall
 echo "Estado actual del firewall:"

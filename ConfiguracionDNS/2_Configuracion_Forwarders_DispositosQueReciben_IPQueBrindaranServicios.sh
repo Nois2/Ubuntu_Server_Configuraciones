@@ -25,7 +25,7 @@ options {
     //========================================================================
     dnssec-validation auto;
     
-    allow-query {172.16.0.2; 2001:db7:dea:a::/64
+    allow-query {172.16.0.2; 2001:db7:dea:a::/64;
     localhost; };
 
     listen-on port 53 {172.16.0.2; 172.16.0.3; };
