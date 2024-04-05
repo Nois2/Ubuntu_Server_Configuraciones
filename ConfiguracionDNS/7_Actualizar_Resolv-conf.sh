@@ -1,3 +1,7 @@
+#!/bin/bash
+
+# Contenido a escribir en el archivo resolv.conf
+resolv_content=$(cat << 'EOF'
 # This is /run/systemd/resolve/stub-resolv.conf managed by man:systemd-resolved(8).
 # Do not edit.
 #
@@ -23,3 +27,8 @@ nameserver 172.16.0.2
 nameserver 127.0.0.53
 options edns0 trust-ad
 search semita.sv
+EOF
+)
+
+# Escribir el contenido en el archivo resolv.conf
+echo "$resolv_content" | sudo tee /etc/resolv.conf > /dev/null

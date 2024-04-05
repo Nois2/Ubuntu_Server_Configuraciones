@@ -6,14 +6,14 @@ db_content=$(cat << 'EOF'
 ; BIND reverse data file for local loopback interface
 ;
 $TTL 604800
-@       IN      SOA     serverubuntu.semita.sv root.semita.sv. (
+@       IN      SOA     serverubuntu.semita.sv. root.semita.sv. (
                         1        ; Serial
                         604800   ; Refresh
                         86400    ; Retry
                         2419200  ; Expire
                         604800 ) ; Negative Cache TTL
 ;
-@       IN      NS      serverubuntu.semita.sv
+@       IN      NS      serverubuntu.semita.sv.
 2       IN      PTR     serverubuntu.semita.sv.
 10      IN      PTR     mail.semita.sv.
 5       IN      PTR     tilin.semita.sv.
