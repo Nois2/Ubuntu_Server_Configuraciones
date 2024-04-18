@@ -9,3 +9,6 @@ Orden de archivos a ejecutar
 --Ubuntu Server 22.04.4 LTS
 
 hola
+
+Funcional Comprobado:
+Configuracion IPV4.
