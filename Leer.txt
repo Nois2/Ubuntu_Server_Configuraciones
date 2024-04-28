@@ -8,7 +8,3 @@ Orden de archivos a ejecutar
 //Estos scripts fueron comprobados para 
 --Ubuntu Server 22.04.4 LTS
 
-hola
-
-Funcional Comprobado:
-Configuracion IPV4.

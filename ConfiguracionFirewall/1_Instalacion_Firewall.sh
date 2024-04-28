@@ -1,43 +1,42 @@
 #!/bin/bash
 
 # Verificar si UFW está instalado
-if ! command -v ufw &> /dev/null
-then
+if ! command -v ufw &> /dev/null; then
     # Si no está instalado, instalar UFW
     echo "UFW no está instalado, instalando..."
-    echo $(sudo apt-get install ufw)
+    sudo apt-get install ufw -y
 else
     echo "UFW ya está instalado."
 fi
 
 # Permitir conexiones SSH a través del firewall
 echo "Permitiendo conexiones SSH a través del firewall..."
-echo $(sudo ufw allow ssh)
+sudo ufw allow ssh
 
 # Habilitar el firewall
 echo "Habilitando el firewall..."
-echo $(sudo ufw enable)
+sudo ufw enable
 
 # Verificar el estado del firewall
 echo "Estado del firewall:"
-echo $(sudo ufw status)
+sudo ufw status
 
 # Realizando copias de seguridad de los archivos de configuración SSH
 echo "Realizando copias de seguridad de los archivos de configuración SSH..."
-echo $(cd /etc/ssh && sudo cp sshd_config sshd_config.bkp)
-echo $(cd /etc/ssh && sudo cp ssh_config ssh_config.bkp)
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bkp
+sudo cp /etc/ssh/ssh_config /etc/ssh/ssh_config.bkp
 
 # Listar los archivos de configuración y sus permisos
 echo "Listando archivos de configuración SSH y sus permisos:"
-echo $(ls -l /etc/ssh)
+ls -l /etc/ssh
 
 # Reiniciar el servicio SSH
 echo "Reiniciando el servicio SSH..."
-echo $(sudo service ssh restart)
+sudo service ssh restart
 
 # Verificar el estado del servicio SSH
 echo "Estado del servicio SSH:"
-echo $(sudo service ssh status)
+sudo service ssh status
 
 echo "Recuerda que para acceder al servicio SSH desde otra máquina necesitas:"
 echo "ssh usuarioDelServidor@ipdelservidor"
