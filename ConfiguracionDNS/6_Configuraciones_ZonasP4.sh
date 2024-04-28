@@ -27,8 +27,13 @@ EOF
 echo "$db_content" | sudo tee /etc/bind/db.inversav6 > /dev/null
 
 # Verificar si hay errores en db.inversav6
-sudo named-checkzone a.0.0.0.a.e.d.0.7.b.d.0.1.0.0.2.ip6.arpa /etc/bind/db.inversav6
+if ! sudo named-checkzone a.0.0.0.a.e.d.0.7.b.d.0.1.0.0.2.ip6.arpa /etc/bind/db.inversav6; then
+    echo "Error: Se encontraron errores en db.inversav6."
+fi
 
+# Reiniciar el servicio bind9
 sudo service bind9 restart
 
-echo $(sudo service bind9 status)
+# Verificar el estado del servicio bind9
+echo "Estado del servicio bind9:"
+sudo service bind9 status

@@ -38,4 +38,6 @@ EOF
 echo "$options_content" | sudo tee /etc/bind/named.conf.options > /dev/null
 
 # Verificar si hay errores en named.conf.options
-sudo $(named-checkconf /etc/bind/named.conf.options)
+if ! sudo named-checkconf /etc/bind/named.conf.options; then
+    echo "Error: Se encontraron errores en named.conf.options."
+fi

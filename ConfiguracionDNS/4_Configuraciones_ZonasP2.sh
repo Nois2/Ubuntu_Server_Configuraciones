@@ -34,4 +34,6 @@ EOF
 echo "$db_content" | sudo tee /etc/bind/db.semita.sv > /dev/null
 
 # Verificar si hay errores en db.semita.sv
-sudo named-checkzone semita.sv /etc/bind/db.semita.sv
+if ! sudo named-checkzone semita.sv /etc/bind/db.semita.sv; then
+    echo "Error: Se encontraron errores en db.semita.sv."
+fi

@@ -37,6 +37,9 @@ echo "$network_config" >00-installer-config.yaml
 # Verifica si la escritura fue exitosa
 if [ $? -eq 0 ]; then
     echo "El contenido se ha agregado correctamente al archivo 00-installer-config.yaml."
+    echo "El sistema se apagará en 5 segundos."
+    sleep 5
+    sudo shutdown now
 else
     echo "Error: No se pudo agregar el contenido al archivo 00-installer-config.yaml." >&2
 fi

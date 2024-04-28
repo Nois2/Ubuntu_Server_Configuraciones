@@ -29,4 +29,6 @@ EOF
 echo "$local_content" | sudo tee /etc/bind/named.conf.local > /dev/null
 
 # Verificar si hay errores en named.conf.local
-sudo named-checkconf /etc/bind/named.conf.local
+if ! sudo named-checkconf /etc/bind/named.conf.local; then
+    echo "Error: Se encontraron errores en named.conf.local."
+fi

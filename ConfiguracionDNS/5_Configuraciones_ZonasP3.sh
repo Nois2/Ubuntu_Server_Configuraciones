@@ -26,4 +26,6 @@ EOF
 echo "$db_content" | sudo tee /etc/bind/db.inversav4 > /dev/null
 
 # Verificar si hay errores en db.inversav4
-sudo named-checkzone 0.16.172.in-addr.arpa /etc/bind/db.inversav4
+if ! sudo named-checkzone 0.16.172.in-addr.arpa /etc/bind/db.inversav4; then
+    echo "Error: Se encontraron errores en db.inversav4."
+fi
